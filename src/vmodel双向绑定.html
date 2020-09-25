@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <input type="text" v-model="message">
+ <!-- <input type="text" :value="message" @input=" message = $event.target.value" >-->
+ <!-- <input type="text" :value="message" @input="getValue" />-->
+  {{message}}</div>
+
+<script src="js/vue.js"></script>
+<script>
+  let app = new Vue({
+    el:'#app',
+    data:{message:'hello Vue'},
+    methods:{
+      getValue(ev){
+      this.message = ev.target.value; //事件监听的最新动态
+      }
+    }
+  })
+</script>
+</body>
+</html>

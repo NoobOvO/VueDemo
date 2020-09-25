@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <div @click="divClick">
+    <button @click.stop="btnClick">阻止冒泡</button>
+  </div>
+   <form action="https://www.baidu.com">
+     <input type="submit" value="阻止浏览器默认事件" @click.prevent="stopPrevent"  >
+   </form>
+
+</div>
+
+<script src="js/vue.js"></script>
+<script>
+  //v-on修饰符 @click.stop是阻止冒泡 @click.prevent是阻止浏览器默认事件
+  let app = new Vue({
+    el:'#app',
+    data:{message:'hello Vue'},
+    methods:{
+      divClick(){
+        console.log('div--------');
+      },
+      btnClick(){
+        console.log('btn--------');
+      },
+      stopPrevent(){
+        console.log('阻止浏览器默认事件');
+      }
+    }
+  })
+</script>
+</body>
+</html>

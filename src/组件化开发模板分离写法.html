@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <cpn1></cpn1>
+</div>
+<!--第一种分离模板方式 通过script标签方式-->
+<!--<script type="text/x-template" id="cpn1">
+<div>
+  <h1>今天真是充满希望的一天</h1>
+  <p>就这 就这 就这</p>
+</div>
+</script>-->
+
+<!--第一种分录模板的方式 通过template标签的方式进行分离-->
+<template id="cpn1">
+  <div>
+    <h1>今天真是充满希望的一天222</h1>
+    <p>就这 就这 就这222</p>
+  </div>
+</template>
+
+<script src="js/vue.js"></script>
+<script>
+
+  Vue.component('cpn1',{
+    template:'#cpn1'
+  });
+
+  let app = new Vue({
+    el:'#app',
+    data:{message:'hello Vue'}
+  })
+</script>
+</body>
+</html>

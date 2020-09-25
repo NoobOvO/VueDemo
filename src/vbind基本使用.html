@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <!--常规写法-->
+  <img v-bind:src="imgUrl">
+  <a v-bind:href="aHref">百度一下</a>
+
+  <!--语法糖-->
+  <img :src="imgUrl">
+  <a :href="aHref">百度一下</a>
+
+</div>
+
+<script src="js/vue.js"></script>
+<script>
+  let app = new Vue({
+    el:'#app',
+    data:{
+      imgUrl:'https://www.runoob.com/wp-content/uploads/2014/06/linux.jpg',
+      aHref:'https://www.baidu.com'
+    }
+  })
+</script>
+
+</body>
+</html>

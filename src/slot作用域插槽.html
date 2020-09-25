@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <cpn>
+  <template slot-scope="slot">
+    <span>{{slot.data.join(' - ')}}</span>
+  </template>
+  </cpn>
+
+  <cpn>
+    <template slot-scope="slot">
+      <span>{{slot.data.join(' * ')}}</span>
+    </template>
+  </cpn>
+
+</div>
+
+<template id="cpn">
+ <div>
+   <slot :data="clanguages">
+     <ul>
+       <li v-for="item in clanguages">{{item}}</li>
+     </ul>
+   </slot>
+ </div>
+</template>
+
+
+
+<script src="js/vue.js"></script>
+<script>
+  //为了父组件可以更改子组件显示的内容
+  let app = new Vue({
+    el:'#app',
+    data:{message:'hello Vue'},
+    components:{
+     cpn:{
+       template:'#cpn',
+       data(){
+         return { clanguages:['Java','Js','C','C++']};
+       }
+     }
+
+    }
+  })
+</script>
+
+</body>
+</html>

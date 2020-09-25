@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hi^ ^</title>
+</head>
+<body>
+<div id="app">
+  <!--<div :style(样式)="{key(属性名):value(属性值)}"></div>-->
+  <h2 :style="{fontSize:fontPx+'px'}">{{message}}</h2>
+  <h2 :style="{fontSize:'50px'}">{{message}}</h2>
+</div>
+
+<script src="js/vue.js"></script>
+<script>
+  let app = new Vue({
+    el:'#app',
+    data:{message:'hello Vue',
+    fontPx:50 //变量要写在下面  不能直接赋值 因为他会认为你是个变量 变量不能以数字开头 或者给变量加引号 属性值一般为驼峰命名
+    }
+  })
+</script>
+</body>
+</html>

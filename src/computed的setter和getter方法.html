@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">{{fullName}}</div>
+
+<script src="js/vue.js"></script>
+<script>
+  //为了让合并的值更加美观
+  let app = new Vue({
+    el:'#app',
+    data:{message:'hello Vue'
+      ,firstName:'YoGo'
+      ,lastName:'Su'
+    },
+    computed:{
+      fullName:{
+        set:function () {
+          console.log('一般不用,去掉set就是只读,get的简写就是fullName:function(){}');
+        },
+        get:function () {
+          return this.firstName+' '+this.lastName;
+        }
+      }
+    }
+  })
+</script>
+
+
+</body>
+</html>

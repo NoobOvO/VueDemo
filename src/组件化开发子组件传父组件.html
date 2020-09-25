@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <cpn @itembtn="nowclick"></cpn>
+</div>
+<template id="cpn">
+  <div>
+    <button v-for="item in categories" @click="btnclick(item)">{{item}}</button>
+  </div>
+
+</template>
+<script src="js/vue.js"></script>
+<script>
+
+  const cpn={
+    template:"#cpn",
+    data(){
+      return{
+        categories:['何首乌','飘柔','海飞丝','力士']
+      }
+    },
+    methods:{
+      btnclick(item){
+       this.$emit('itembtn',item);
+      }
+    }
+
+  };
+
+
+  let app = new Vue({
+    el:'#app',
+    data:{
+      message:'hello Vue'
+    },
+    components:{
+      cpn
+    },
+    methods:{
+      nowclick(item){
+        console.log('now',item);
+      }
+    }
+  })
+</script>
+</body>
+</html>
